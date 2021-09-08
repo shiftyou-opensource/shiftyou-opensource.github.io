@@ -146,9 +146,7 @@ class _LandingPageState extends State<LandingPage> {
 
   Widget _makePlaystoreView() {
     return Row(
-      children: [
-        Expanded(child: Text("Playstore view"))
-      ],
+      children: [Expanded(child: Text("Playstore view"))],
     );
   }
 }
