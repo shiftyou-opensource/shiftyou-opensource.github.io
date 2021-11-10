@@ -41,10 +41,15 @@ class AppDarkNightTheme extends AppTheme {
         suffixStyle: TextStyle(color: Color.fromARGB(255, 98, 114, 164)),
       ),
       textTheme: TextTheme(
-        bodyText1: TextStyle(),
-        bodyText2: TextStyle(),
-        headline5: TextStyle(fontWeight: FontWeight.bold),
-        caption: TextStyle(fontStyle: FontStyle.normal, fontSize: 13),
+        bodyText1: TextStyle(color: Color.fromARGB(255, 98, 114, 164)),
+        bodyText2: TextStyle(color: Color.fromARGB(255, 98, 114, 164)),
+        headline5: TextStyle(
+            color: Color.fromARGB(255, 98, 114, 164),
+            fontWeight: FontWeight.bold),
+        caption: TextStyle(
+            color: Color.fromARGB(255, 98, 114, 164),
+            fontStyle: FontStyle.normal,
+            fontSize: 13),
       ).apply(
         bodyColor: Color.fromARGB(255, 98, 114, 164),
         decorationColor: Color.fromARGB(255, 98, 114, 164),

@@ -1,6 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 Widget buildUserIcon(BuildContext context, String imageUrl) {
   return CircleAvatar(
@@ -67,16 +68,19 @@ Widget makeButton(BuildContext context,
     ButtonStyle? style}) {
   switch (type) {
     case ButtonType.NORMAL:
-      return ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(
-            primary: Theme.of(context).colorScheme.primary,
-            elevation: 3,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-          ),
-          onPressed: () => onPress(),
-          icon: icon,
-          label: Text(text));
+      return Container(
+        margin: EdgeInsets.all(1),
+        child: ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              primary: Theme.of(context).colorScheme.primary,
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+            ),
+            onPressed: () => onPress(),
+            icon: icon,
+            label: FittedBox(fit: BoxFit.contain, child: Text(text))),
+      );
   }
 }
 
