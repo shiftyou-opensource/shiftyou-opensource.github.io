@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:yourshift_site/views/home/landpage/langind_page.dart';
+import 'package:yourshift_site/utils/utils.dart';
+import 'package:yourshift_site/views/home/landpage/landind_page.web.dart';
+import 'package:yourshift_site/views/home/landpage/landing_page.mobile.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key, required this.title}) : super(key: key);
@@ -21,7 +23,9 @@ class HomeView extends StatelessWidget {
         elevation: 2,
         leading: Container(),
       ),
-      body: LandingPage(title: title),
+      body: ScreenUtils.isSmallScreen(context)
+          ? LandingPageMobile(title: title)
+          : LandingPage(title: title),
     );
   }
 }

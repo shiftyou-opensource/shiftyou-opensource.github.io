@@ -1,21 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
-import 'package:yourshift_site/utils/generic_components.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:yourshift_site/utils/generic_components.dart';
 
-//https://www.pinterest.it/pin/129478558026692427/
-class LandingPage extends StatefulWidget {
-  LandingPage({Key? key, required this.title}) : super(key: key);
+class LandingPageMobile extends StatelessWidget {
+  LandingPageMobile({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
-  @override
-  _LandingPageState createState() => _LandingPageState();
-}
-
-class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,29 +36,35 @@ class _LandingPageState extends State<LandingPage> {
   /// Build the App preview of the app
   Widget _buildAppPreview({required BuildContext context}) {
     return Row(
-      children: [
-        Spacer(),
-        Expanded(flex: 3, child: _buildAppDescription(context: context)),
-        Spacer(),
-        Expanded(
-            flex: 5,
-            child: Image.network(
-              'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/web/preview_site.png',
-              fit: BoxFit.cover,
-            )),
-        Spacer(),
-      ],
+      children: _makeListComponent(context: context),
     );
+  }
+
+  List<Widget> _makeListComponent({required BuildContext context}) {
+    return [
+      Spacer(),
+      Expanded(flex: 3, child: _buildAppDescription(context: context)),
+      Spacer(),
+      Expanded(
+          flex: 5,
+          child: Image.network(
+            'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/web/preview_site.png',
+            fit: BoxFit.cover,
+          )),
+      Spacer(),
+    ];
   }
 
   Widget _buildAppDescription({required BuildContext context}) {
     return Column(children: [
       Expanded(
           flex: 1,
-          child: Image.network(
-            'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/main_icon/res/mipmap-xxxhdpi/ic_launcher.png',
-            alignment: Alignment.center,
-            fit: BoxFit.fill,
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: Image.network(
+              'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/main_icon/res/mipmap-xxxhdpi/ic_launcher.png',
+              alignment: Alignment.center,
+            ),
           )),
       Expanded(
           flex: 2,
