@@ -19,8 +19,6 @@ class LandingPageMobile extends StatelessWidget {
               margin: EdgeInsets.only(top: 10),
               child: _buildAppPreview(context: context),
             )),
-        Divider(),
-        Spacer(),
       ],
     );
   }
@@ -35,7 +33,7 @@ class LandingPageMobile extends StatelessWidget {
 
   /// Build the App preview of the app
   Widget _buildAppPreview({required BuildContext context}) {
-    return Row(
+    return Column(
       children: _makeListComponent(context: context),
     );
   }
@@ -44,14 +42,6 @@ class LandingPageMobile extends StatelessWidget {
     return [
       Spacer(),
       Expanded(flex: 3, child: _buildAppDescription(context: context)),
-      Spacer(),
-      Expanded(
-          flex: 5,
-          child: Image.network(
-            'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/web/preview_site.png',
-            fit: BoxFit.cover,
-          )),
-      Spacer(),
     ];
   }
 
@@ -70,25 +60,21 @@ class LandingPageMobile extends StatelessWidget {
           flex: 2,
           child: Column(
             children: [
-              FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text(
-                    "Shift You",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3!
-                        .apply(color: Theme.of(context).colorScheme.primary),
-                  )),
-              FittedBox(
-                  fit: BoxFit.contain,
-                  child: Text("Your hospital shift in a Fashion Way!",
-                      style: Theme.of(context).textTheme.headline6!.apply(
-                          color:
-                              Theme.of(context).textTheme.bodyText1!.color))),
+              Text(
+                "Shift You",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6!
+                    .apply(color: Theme.of(context).colorScheme.primary),
+              ),
+              Text("Your hospital shift in a Fashion Way!",
+                  style: Theme.of(context).textTheme.bodyText1!.apply(
+                      color: Theme.of(context).textTheme.bodyText1!.color)),
               Container(
-                margin: EdgeInsets.only(top: 10),
+                margin: EdgeInsets.all(30),
                 child: Row(
                   children: [
+                    Spacer(),
                     Expanded(
                         flex: 3,
                         child: makeButton(context,
@@ -96,6 +82,7 @@ class LandingPageMobile extends StatelessWidget {
                             onPress: () =>
                                 _launchURL("http://shorturl.at/otCQ5"),
                             text: "App Store")),
+                    Spacer(),
                     Expanded(
                         flex: 3,
                         child: makeButton(context,
@@ -103,6 +90,7 @@ class LandingPageMobile extends StatelessWidget {
                             onPress: () =>
                                 _launchURL("http://shorturl.at/jnBHL"),
                             text: "Play Store")),
+                    Spacer(),
                   ],
                 ),
               )

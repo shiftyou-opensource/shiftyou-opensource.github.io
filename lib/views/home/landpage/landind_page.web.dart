@@ -4,7 +4,6 @@ import 'package:flutter/widgets.dart';
 import 'package:yourshift_site/utils/generic_components.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:yourshift_site/utils/utils.dart';
 
 //https://www.pinterest.it/pin/129478558026692427/
 class LandingPage extends StatefulWidget {
@@ -24,7 +23,6 @@ class _LandingPageState extends State<LandingPage> {
         Expanded(
             flex: 5,
             child: Container(
-              margin: EdgeInsets.only(top: 10),
               child: _buildAppPreview(context: context),
             )),
         Divider(),
@@ -67,14 +65,12 @@ class _LandingPageState extends State<LandingPage> {
     return Column(children: [
       Spacer(),
       Expanded(
-          flex: 1,
-          child: FittedBox(
-            fit: BoxFit.contain,
-            child: Image.network(
-              'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/main_icon/res/mipmap-xxxhdpi/ic_launcher.png',
-              alignment: Alignment.center,
-            ),
-          )),
+        flex: 1,
+        child: Image.network(
+          'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/main_icon/res/mipmap-xxxhdpi/ic_launcher.png',
+          alignment: Alignment.center,
+        ),
+      ),
       Expanded(
           flex: 2,
           child: Column(
