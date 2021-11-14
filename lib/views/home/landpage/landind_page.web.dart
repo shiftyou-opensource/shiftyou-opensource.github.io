@@ -23,7 +23,6 @@ class _LandingPageState extends State<LandingPage> {
         Expanded(
             flex: 5,
             child: Container(
-              margin: EdgeInsets.only(top: 10),
               child: _buildAppPreview(context: context),
             )),
         Divider(),
@@ -43,30 +42,35 @@ class _LandingPageState extends State<LandingPage> {
   /// Build the App preview of the app
   Widget _buildAppPreview({required BuildContext context}) {
     return Row(
-      children: [
-        Spacer(),
-        Expanded(flex: 3, child: _buildAppDescription(context: context)),
-        Spacer(),
-        Expanded(
-            flex: 5,
-            child: Image.network(
-              'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/web/preview_site.png',
-              fit: BoxFit.cover,
-            )),
-        Spacer(),
-      ],
+      children: _makeListComponent(context: context),
     );
+  }
+
+  List<Widget> _makeListComponent({required BuildContext context}) {
+    return [
+      Spacer(),
+      Expanded(flex: 3, child: _buildAppDescription(context: context)),
+      Spacer(),
+      Expanded(
+          flex: 5,
+          child: Image.network(
+            'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/web/preview_site.png',
+            fit: BoxFit.cover,
+          )),
+      Spacer(),
+    ];
   }
 
   Widget _buildAppDescription({required BuildContext context}) {
     return Column(children: [
+      Spacer(),
       Expanded(
-          flex: 1,
-          child: Image.network(
-            'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/main_icon/res/mipmap-xxxhdpi/ic_launcher.png',
-            alignment: Alignment.center,
-            fit: BoxFit.fill,
-          )),
+        flex: 1,
+        child: Image.network(
+          'https://raw.githubusercontent.com/shiftyou-opensource/shiftyou.icons/main/main_icon/res/mipmap-xxxhdpi/ic_launcher.png',
+          alignment: Alignment.center,
+        ),
+      ),
       Expanded(
           flex: 2,
           child: Column(
@@ -106,7 +110,8 @@ class _LandingPageState extends State<LandingPage> {
                             text: "Play Store")),
                   ],
                 ),
-              )
+              ),
+              Spacer(),
             ],
           ))
     ]);
