@@ -1,11 +1,9 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 Widget buildUserIcon(BuildContext context, String imageUrl) {
   return CircleAvatar(
-    backgroundColor: Theme.of(context).colorScheme.primaryVariant,
+    backgroundColor: Theme.of(context).colorScheme.primaryContainer,
     radius: 60.0,
     child: CircleAvatar(
       radius: 50.0,
